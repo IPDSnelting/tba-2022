@@ -10,7 +10,7 @@ You can run Gitpod workspaces for free for 50 hours per month, which should be m
 ### Gitpod
 
 1. Register at https://gitpod.io/login/
-1. Go to https://gitpod.io/#/https://github.com/IPDSnelting/tba-2022/ to spawn a new workspace based on this repository.
+1. Go to https://gitpod.io/#/https://github.com/IPDSnelting/tba-2022/ (or click button above) to spawn a new workspace based on this repository.
 Whenever you click on that link again, you should get a fresh copy of the newest commit of the repository.
 Go to https://gitpod.io/workspaces/ instead to continue working on an existing workspace with your changes.
 1. When the workspace has finished loading, you should get a VS Code interface. Open the file `TBA.lean` to verify the setup.
