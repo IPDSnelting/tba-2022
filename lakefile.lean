@@ -2,5 +2,7 @@ import Lake
 
 open Lake DSL
 
-package tba where
+package tba {
+  libRoots := #["TBA"],
   defaultFacet := PackageFacet.oleans
+}
