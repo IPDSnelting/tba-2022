@@ -3,4 +3,4 @@ image:
 
 vscode:
   extensions:
-    - leanprover.lean4@0.0.66
+    - leanprover.lean4
