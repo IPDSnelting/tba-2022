@@ -52,6 +52,9 @@ theorem iff_and_false : False ↔ p ∧ False := _
 
 -- Negation is defined by ¬ A := (A → False).
 -- How is that a good choice? Let us check some basic properties of negation:
+
+example : ¬False := _
+
 theorem imp_not_not : p → ¬¬p := _
 
 example : ¬(p ∧ ¬p) := _
