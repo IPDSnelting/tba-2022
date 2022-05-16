@@ -62,7 +62,7 @@ theorem le_add : m ≤ m + n := by
     -- same as
     --exact LE.refl _
   | succ n ih =>
-    simp only [add]  -- optional, but helpful
+    rw [add]  -- optional, but helpful
     apply LE.succ
     apply ih
     -- same as
@@ -80,21 +80,21 @@ attribute [simp] add mul
 -- These definitions will now automatically be unfolded when you use `simp/simp_all`
 
 
-theorem add_succ : (succ n) + m = succ (n + m) := by
+theorem succ_add : (succ n) + m = succ (n + m) := by
   induction m <;> simp_all [zero_add]
 
 -- This one is a bit more tricky, you might need to prove a helper lemma!
 theorem add_comm : n + m = m + n := by
   induction n with
-  | zero      => simp [zero_add]
-  | succ n ih => simp [add_succ, ih]
+  | zero      => exact zero_add
+  | succ n ih => simp [succ_add, ih]
   
 
 -- Associativity can be proven in a similar way.
 theorem add_assoc : (m + n) + k = m + (n + k) := by
   induction k with
   | zero      => rfl
-  | succ k ih => simp [add_succ, ih]
+  | succ k ih => simp [succ_add, ih]
   
 
 def one := succ zero
@@ -110,7 +110,7 @@ theorem left_distrib : m * (n + k) = (m * n) + (m * k) := by
   induction k with
   | zero      => simp
   | succ k ih =>
-    rw [add, mul, mul, ih, ←add_assoc]
+    rw [add, mul, mul, ih, add_assoc]
     -- NOTE: We *could* also use `add_assoc` as a simp theorem here.
     -- ```
     --  | succ n ih => simp [add_succ, ih, add_assoc]
@@ -144,20 +144,22 @@ theorem one_mul : one * m = m := by
   | succ m ih => simp [ih]
 
 -- You should now be able to instantiate two of them, including proofs!
-def Nat_add_Monoid : Monoid Nat := 
-  { mul := add,
-    assoc := add_assoc,
-    e := zero,
-    e_mul := by intros; simp [zero_add]
-    mul_e := by intros; rfl }
-  
+def Nat_add_Monoid : Monoid Nat := {
+  mul   := add
+  assoc := add_assoc
+  e     := zero
+  e_mul := zero_add
+  mul_e := rfl
+}
 
-def Nat_mul_Monoid : Monoid Nat := 
-  { mul := mul,
-    assoc := mul_assoc,
-    e := one,
-    e_mul := one_mul,
-    mul_e := mul_one }
-  
+
+def Nat_mul_Monoid : Monoid Nat := {
+  mul   := mul
+  assoc := mul_assoc
+  e     := one
+  e_mul := one_mul
+  mul_e := mul_one
+}
+
 
 end TBA
