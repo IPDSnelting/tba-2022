@@ -13,7 +13,7 @@ def empty : Map α β := fun k => none
 def update [DecidableEq α] (m : Map α β) (k : α) (v : Option β) : Map α β :=
   fun k' => if k = k' then v else m k'
 
-notation:max m "[" k " ↦ " v "]" => update m k v
+macro:max m:term noWs "[" k:term " ↦ " v:term "]" : term => `(update $m $k $v)
 
 end Map
 

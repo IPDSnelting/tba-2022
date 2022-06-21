@@ -1,8 +1,9 @@
 import Lake
-
 open Lake DSL
 
-package tba {
-  libRoots := #["TBA"],
-  defaultFacet := PackageFacet.oleans
-}
+package tba
+
+@[defaultTarget]
+lean_lib TBA
+
+require aesop from git "https://github.com/Kha/aesop" @ "match-eqns"
