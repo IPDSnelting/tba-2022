@@ -1,1 +1,15 @@
 /build
+*.fls
+*.nav
+*.out
+/slides/*.pdf
+*.log
+*.vrb
+*.toc
+*.snm
+*.fdb_latexmk
+*.aux
+*.xdv
+/aushang/*.pdf
+/aushang/*.dvi
+slides/_minted*
